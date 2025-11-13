@@ -6,10 +6,10 @@ A typesafe and structured way to build Next.js Server Actions with middleware an
 
 This library empowers you to build robust Next.js Server Actions by providing:
 
--   **End-to-end Type Safety:** Automatically infer types from your Zod schemas and middleware, ensuring your actions are typesafe from client to server.
--   **Reusable Middleware:** Define and compose middleware to handle common tasks like authentication, authorization, and logging.
--   **Zod Schema Validation:** Validate action payloads with Zod schemas, providing clear and concise error messages.
--   **Centralized Action Clients:** Create different action clients (e.g., for public, protected, or admin-only actions) in a single, organized file.
+- **End-to-end Type Safety:** Automatically infer types from your Zod schemas and middleware, ensuring your actions are typesafe from client to server.
+- **Reusable Middleware:** Define and compose middleware to handle common tasks like authentication, authorization, and logging.
+- **Zod Schema Validation:** Validate action payloads with Zod schemas, providing clear and concise error messages.
+- **Centralized Action Clients:** Create different action clients (e.g., for public, protected, or admin-only actions) in a single, organized file.
 
 ## Installation
 
@@ -158,9 +158,9 @@ This package does not include `react-query` hooks by default to keep the core li
 
 **To add the hooks:**
 
-1.  Create a new directory in your project, for example, `/lib/hooks`.
-2.  Copy the contents of `evoo/use-action-mutation.ts` and `evoo/use-query-action.ts` into this new directory.
-3.  You can now import and use these hooks in your client components.
+1. Create a new directory in your project, for example, `/lib/hooks`.
+2. Copy the contents of `evoo/use-action-mutation.ts` and `evoo/use-query-action.ts` into this new directory.
+3. You can now import and use these hooks in your client components.
 
 **Note:** You will need to have `react-query` installed in your project to use these hooks.
 
@@ -170,6 +170,6 @@ While `better-next-actions` is designed for Next.js Server Actions, you might ne
 
 It offers a typesafe and structured way to build your API routes with features like:
 
--   **App Router Ready:** Built specifically for the Next.js App Router.
--   **Middleware Support:** Compose and reuse middleware for your API routes.
--   **Zod Schema Validation:** End-to-end validation for `searchParams` (GET), `params`, and the request `body` (POST, PUT, etc.).
+- **App Router Ready:** Built specifically for the Next.js App Router.
+- **Middleware Support:** Compose and reuse middleware for your API routes.
+- **Zod Schema Validation:** End-to-end validation for `searchParams` (GET), `params`, and the request `body` (POST, PUT, etc.).
