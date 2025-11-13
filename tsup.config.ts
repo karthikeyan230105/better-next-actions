@@ -1,14 +1,14 @@
 import { defineConfig } from 'tsup';
 
-export default defineConfig({
+export default defineConfig((options) => ({
   entry: {
     index: 'src/index.ts',
     'hooks/index': 'src/use-action.ts',
   },
-  format: ['cjs', 'esm'],
+  format: ['esm'],
   dts: true,
-  splitting: true,
-  sourcemap: true,
+  splitting: false,
+  sourcemap: !!options.watch,
   clean: true,
-  shims: true,
-});
+  minify: !options.watch,
+}));
