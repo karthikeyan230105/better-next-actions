@@ -1,6 +1,6 @@
 {
   "name": "better-next-actions",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "A lightweight, modern hook for calling Next.js server actions with confidence.",
   "type": "module",
   "sideEffects": false,
